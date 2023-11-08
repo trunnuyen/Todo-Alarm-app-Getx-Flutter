@@ -1,11 +1,11 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:todo_app_with_getx/app/core/utils/extensions.dart';
 import 'package:todo_app_with_getx/app/core/values/colors.dart';
 import 'package:todo_app_with_getx/app/core/values/icons.dart';
-import 'package:todo_app_with_getx/app/core/values/st_vi_vn.dart';
-import 'package:todo_app_with_getx/app/data/services/storage/services.dart';
+import 'package:todo_app_with_getx/app/data/models/task.dart';
 import 'package:todo_app_with_getx/app/screens/home/controller.dart';
 
 class AddCard extends StatelessWidget {
@@ -55,7 +55,9 @@ class AddCard extends StatelessWidget {
                                       return ChoiceChip(
                                         selectedColor: Colors.grey[100],
                                         pressElevation: 0,
-                                        backgroundColor: Colors.white,
+                                        backgroundColor: Get.isDarkMode
+                                            ? Colors.black
+                                            : Colors.white,
                                         label: e,
                                         selected:
                                             homeCtrl.chipIndex.value == index,
@@ -76,11 +78,37 @@ class AddCard extends StatelessWidget {
                             ),
                             minimumSize: const Size(150, 40),
                           ),
-                          onPressed: () {},
-                          child: Text('add'.tr),
+                          onPressed: () {
+                            if (homeCtrl.formKey.currentState!.validate()) {
+                              int icon = icons[homeCtrl.chipIndex.value]
+                                  .icon!
+                                  .codePoint;
+                              String color = icons[homeCtrl.chipIndex.value]
+                                  .color!
+                                  .toHex();
+                              var task = Task(
+                                  title: homeCtrl.homeTextCtrl.text,
+                                  icon: icon,
+                                  color: color);
+                              Get.back();
+                              homeCtrl.addTask(task)
+                                  ? EasyLoading.showSuccess('Task created')
+                                  : EasyLoading.showError(
+                                      'Something went wrong');
+                            }
+                          },
+                          child: Text(
+                            'add'.tr,
+                            style: TextStyle(
+                              color:
+                                  Get.isDarkMode ? Colors.black : Colors.white,
+                            ),
+                          ),
                         ),
                       ],
                     )));
+            homeCtrl.homeTextCtrl.clear();
+            homeCtrl.changeChipIndex(0);
           },
           child: DottedBorder(
             color: Colors.grey[400]!,

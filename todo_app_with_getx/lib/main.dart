@@ -21,6 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'To do app using Getx',
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
       home: const HomePage(),
       locale: LocalizationService.locale,
       fallbackLocale: LocalizationService.fallbackLocale,

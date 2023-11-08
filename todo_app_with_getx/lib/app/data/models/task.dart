@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class Task extends Equatable{
+class Task extends Equatable {
   final String title;
   final int icon;
   final String color;
@@ -37,8 +37,7 @@ class Task extends Equatable{
         'color': color,
         'todos': todos,
       };
-      
-        @override
-        // TODO: implement props
-        List<Object?> get props => [title, icon, color];
+
+  @override
+  List<Object?> get props => [title, icon, color];
 }
