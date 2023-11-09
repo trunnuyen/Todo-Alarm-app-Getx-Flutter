@@ -17,6 +17,7 @@ class HomeController extends GetxController {
   final selectedTasks = <Task>[].obs;
   final doingTodos = <dynamic>[].obs;
   final doneTodos = <dynamic>[].obs;
+  final tabIndex = 0.obs;
 
   @override
   void onInit() {
@@ -106,6 +107,10 @@ class HomeController extends GetxController {
         (element) => mapEquals<String, dynamic>(doingTodo, element));
     doingTodos.removeAt(index);
     doingTodos.refresh();
+  }
+
+  void changeTabIndex(int index) {
+    tabIndex.value = index;
   }
 
   bool updateTask(List<Task> selectedTasks, String title) {

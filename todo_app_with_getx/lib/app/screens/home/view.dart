@@ -7,6 +7,7 @@ import 'package:todo_app_with_getx/app/screens/home/controller.dart';
 import 'package:todo_app_with_getx/app/screens/home/widgets/add_card.dart';
 import 'package:todo_app_with_getx/app/screens/home/widgets/add_dialog.dart';
 import 'package:todo_app_with_getx/app/screens/home/widgets/task_card.dart';
+import 'package:todo_app_with_getx/app/screens/report/view.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -14,61 +15,72 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: ListView(
+      body: Obx(
+        () => IndexedStack(
+          index: controller.tabIndex.value,
           children: [
-            Padding(
-              padding: EdgeInsets.all(4.0.wp),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            SafeArea(
+              child: ListView(
                 children: [
-                  Text(
-                    'add'.tr,
-                    style: TextStyle(
-                        fontSize: 24.0.sp, fontWeight: FontWeight.bold),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Get.isDarkMode
-                          ? Get.changeTheme(ThemeData.light())
-                          : Get.changeTheme(ThemeData.dark());
-                    },
-                    icon: Icon(
-                        Get.isDarkMode ? Icons.light_mode : Icons.dark_mode),
-                  ),
-                ],
-              ),
-            ),
-            Obx(
-              () => GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                physics: const ClampingScrollPhysics(),
-                children: [
-                  ...controller.tasks
-                      .map(
-                        (element) => LongPressDraggable(
-                          data: element,
-                          onDragStarted: () => controller.changeDeleting(true),
-                          onDraggableCanceled: (_, __) =>
-                              controller.changeDeleting(false),
-                          onDragEnd: (_) => controller.changeDeleting(false),
-                          feedback: Opacity(
-                            opacity: 0.8,
-                            child: TaskCard(task: element),
-                          ),
-                          child: TaskCard(task: element),
+                  Padding(
+                    padding: EdgeInsets.all(4.0.wp),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'add'.tr,
+                          style: TextStyle(
+                              fontSize: 24.0.sp, fontWeight: FontWeight.bold),
                         ),
-                      )
-                      .toList(),
-                  AddCard(),
+                        IconButton(
+                          onPressed: () {
+                            Get.isDarkMode
+                                ? Get.changeTheme(ThemeData.light())
+                                : Get.changeTheme(ThemeData.dark());
+                          },
+                          icon: Icon(Get.isDarkMode
+                              ? Icons.light_mode
+                              : Icons.dark_mode),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Obx(
+                    () => GridView.count(
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      physics: const ClampingScrollPhysics(),
+                      children: [
+                        ...controller.tasks
+                            .map(
+                              (element) => LongPressDraggable(
+                                data: element,
+                                onDragStarted: () =>
+                                    controller.changeDeleting(true),
+                                onDraggableCanceled: (_, __) =>
+                                    controller.changeDeleting(false),
+                                onDragEnd: (_) =>
+                                    controller.changeDeleting(false),
+                                feedback: Opacity(
+                                  opacity: 0.8,
+                                  child: TaskCard(task: element),
+                                ),
+                                child: TaskCard(task: element),
+                              ),
+                            )
+                            .toList(),
+                        AddCard(),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
+            const ReportPage(),
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: DragTarget<Task>(
         builder: (_, __, ___) {
           return Obx(
@@ -86,6 +98,35 @@ class HomePage extends GetView<HomeController> {
           controller.deleteTask(task);
           EasyLoading.showSuccess('Deleted');
         },
+      ),
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent),
+        child: Obx(
+          () => BottomNavigationBar(
+            onTap: (int index) => controller.changeTabIndex(index),
+            currentIndex: controller.tabIndex.value,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            items: [
+              BottomNavigationBarItem(
+                label: 'Home',
+                icon: Padding(
+                  padding: EdgeInsets.only(right: 15.0.wp),
+                  child: const Icon(Icons.apps),
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'Report',
+                icon: Padding(
+                  padding: EdgeInsets.only(left: 15.0.wp),
+                  child: const Icon(Icons.data_usage),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
