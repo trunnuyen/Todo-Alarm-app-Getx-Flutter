@@ -27,10 +27,22 @@ class HomePage extends GetView<HomeController> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'add'.tr,
-                          style: TextStyle(
-                              fontSize: 24.0.sp, fontWeight: FontWeight.bold),
+                        Row(
+                          children: [
+                            const Icon(
+                              Icons.apps,
+                              color: Colors.blue,
+                            ),
+                            SizedBox(
+                              width: 3.0.wp,
+                            ),
+                            Text(
+                              'add'.tr,
+                              style: TextStyle(
+                                  fontSize: 24.0.sp,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
                         ),
                         IconButton(
                           onPressed: () {
@@ -76,7 +88,7 @@ class HomePage extends GetView<HomeController> {
                 ],
               ),
             ),
-            const ReportPage(),
+            ReportPage(),
           ],
         ),
       ),

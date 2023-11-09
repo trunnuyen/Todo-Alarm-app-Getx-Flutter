@@ -30,14 +30,6 @@ class HomeController extends GetxController {
     chipIndex.value = value;
   }
 
-  bool addTask(Task task) {
-    if (tasks.contains(task)) {
-      return false;
-    }
-    tasks.add(task);
-    return true;
-  }
-
   void changeDeleting(bool value) {
     deleting.value = value;
   }
@@ -113,6 +105,14 @@ class HomeController extends GetxController {
     tabIndex.value = index;
   }
 
+  bool addTask(Task task) {
+    if (tasks.contains(task)) {
+      return false;
+    }
+    tasks.add(task);
+    return true;
+  }
+
   bool updateTask(List<Task> selectedTasks, String title) {
     bool result = false;
     for (var element in selectedTasks) {
@@ -152,5 +152,29 @@ class HomeController extends GetxController {
       }
     }
     return count;
+  }
+
+  int getTotalTodos() {
+    int totalTodos = 0;
+    for (int i = 0; i < tasks.length; i++) {
+      if (tasks[i].todos != null) {
+        totalTodos += tasks[i].todos!.length;
+      }
+    }
+    return totalTodos;
+  }
+
+  int getTotalDoneTodos() {
+    int totalDoneTodos = 0;
+    for (int i = 0; i < tasks.length; i++) {
+      if (tasks[i].todos != null) {
+        for (int j = 0; j < tasks[i].todos!.length; j++) {
+          if (tasks[i].todos![j]['done'] == true) {
+            totalDoneTodos += 1;
+          }
+        }
+      }
+    }
+    return totalDoneTodos;
   }
 }
