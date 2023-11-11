@@ -27,7 +27,7 @@ class TaskCard extends StatelessWidget {
         height: squareWith / 2,
         margin: EdgeInsets.all(3.0.wp),
         decoration: BoxDecoration(
-          color: Get.isDarkMode ? Colors.black : Colors.white,
+          color: Theme.of(context).colorScheme.surface,
           boxShadow: [
             BoxShadow(
               color: Get.isDarkMode ? Colors.transparent : Colors.grey[300]!,

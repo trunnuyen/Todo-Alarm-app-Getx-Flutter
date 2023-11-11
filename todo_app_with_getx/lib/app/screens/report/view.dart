@@ -5,6 +5,7 @@ import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:todo_app_with_getx/app/core/utils/extensions.dart';
 import 'package:todo_app_with_getx/app/core/values/colors.dart';
 import 'package:todo_app_with_getx/app/screens/home/controller.dart';
+import 'package:todo_app_with_getx/app/screens/report/widgets/setting_dialog.dart';
 import 'package:todo_app_with_getx/app/screens/report/widgets/todos_static_item.dart';
 
 class ReportPage extends StatelessWidget {
@@ -29,20 +30,32 @@ class ReportPage extends StatelessWidget {
                     horizontal: 4.0.wp,
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(
-                        Icons.data_usage,
-                        color: Colors.blue,
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.data_usage,
+                            color: Colors.blue,
+                          ),
+                          SizedBox(
+                            width: 3.0.wp,
+                          ),
+                          Text(
+                            'report'.tr,
+                            style: TextStyle(
+                              fontSize: 24.0.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        width: 3.0.wp,
-                      ),
-                      Text(
-                        'Report',
-                        style: TextStyle(
-                          fontSize: 24.0.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      IconButton(
+                        onPressed: () {
+                          Get.to(() => SettingDialog(),
+                              transition: Transition.downToUp);
+                        },
+                        icon: const Icon(Icons.settings),
                       ),
                     ],
                   ),
@@ -73,15 +86,15 @@ class ReportPage extends StatelessWidget {
                       TodoStaticItem(
                           color: Colors.orange,
                           count: remainingTodos,
-                          title: 'Live Tasks'),
+                          title: 'live_tasks'.tr),
                       TodoStaticItem(
                           color: Colors.green,
                           count: allDoneTodos,
-                          title: 'Done Tasks'),
+                          title: 'done_tasks'.tr),
                       TodoStaticItem(
                           color: Colors.blue,
                           count: allTodos,
-                          title: 'Total Tasks'),
+                          title: 'total_tasks'.tr),
                     ],
                   ),
                 ),
@@ -115,7 +128,7 @@ class ReportPage extends StatelessWidget {
                             height: 2.0.wp,
                           ),
                           Text(
-                            'Efficiency',
+                            'efficiency'.tr,
                             style: TextStyle(
                               fontSize: 12.0.sp,
                               color: Colors.grey,

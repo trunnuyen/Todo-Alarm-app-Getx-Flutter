@@ -11,16 +11,22 @@ class DoingList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => homeCtrl.doingTodos.isEmpty && homeCtrl.doneTodos.isEmpty
-          ? Column(
-              children: [
-                Image.asset('assets/images/task_image.png',
-                    fit: BoxFit.cover, width: 65.0.wp),
-                Text(
-                  'Add Todos',
-                  style:
-                      TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0.sp),
-                ),
-              ],
+          ? Padding(
+              padding: EdgeInsets.symmetric(vertical: 20.0.wp),
+              child: Column(
+                children: [
+                  Image.asset('assets/images/task_image.png',
+                      fit: BoxFit.cover, width: 65.0.wp),
+                  SizedBox(
+                    height: 5.0.wp,
+                  ),
+                  Text(
+                    'Add Todos',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16.0.sp),
+                  ),
+                ],
+              ),
             )
           : ListView(
               shrinkWrap: true,

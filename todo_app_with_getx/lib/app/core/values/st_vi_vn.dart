@@ -3,4 +3,13 @@ const Map<String, String> vi = {
   'multipleLanguage': 'Đa ngôn ngữ',
   'task': 'Công việc',
   'add': 'Thêm',
+  'language': 'Ngôn ngữ',
+  'about': 'Về ứng dụng',
+  'vietnam': 'Tiếng Việt',
+  'english': 'Tiếng Anh',
+  'live_tasks': 'Đang làm',
+  'done_tasks': 'Đã làm',
+  'total_tasks': 'Tổng',
+  'report': 'Thống kê',
+  'efficiency': 'Hiệu suất',
 };

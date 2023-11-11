@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_app_with_getx/app/data/models/task.dart';
 import 'package:todo_app_with_getx/app/data/services/storage/repository.dart';
+import 'package:todo_app_with_getx/app/data/services/storage/services.dart';
 
 class HomeController extends GetxController {
   TaskRepository taskRepository;
@@ -18,6 +19,7 @@ class HomeController extends GetxController {
   final doingTodos = <dynamic>[].obs;
   final doneTodos = <dynamic>[].obs;
   final tabIndex = 0.obs;
+  final value = 0.obs;
 
   @override
   void onInit() {
@@ -105,6 +107,14 @@ class HomeController extends GetxController {
     tabIndex.value = index;
   }
 
+  void changeLanguage(int index) {
+    if (index == 1) {
+      LocalizationService.changeLocale('en');
+    } else {
+      LocalizationService.changeLocale('vi');
+    }
+  }
+
   bool addTask(Task task) {
     if (tasks.contains(task)) {
       return false;
@@ -176,5 +186,13 @@ class HomeController extends GetxController {
       }
     }
     return totalDoneTodos;
+  }
+
+  void checkLocalLanguage() {
+    if (LocalizationService.locale == const Locale('vi', 'VN')) {
+      value.value = 0;
+    } else {
+      value.value = 1;
+    }
   }
 }

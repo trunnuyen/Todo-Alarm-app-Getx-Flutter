@@ -117,6 +117,7 @@ class HomePage extends GetView<HomeController> {
             highlightColor: Colors.transparent),
         child: Obx(
           () => BottomNavigationBar(
+            backgroundColor: Theme.of(context).colorScheme.surface,
             onTap: (int index) => controller.changeTabIndex(index),
             currentIndex: controller.tabIndex.value,
             showSelectedLabels: false,
@@ -130,7 +131,7 @@ class HomePage extends GetView<HomeController> {
                 ),
               ),
               BottomNavigationBarItem(
-                label: 'Report',
+                label: 'report'.tr,
                 icon: Padding(
                   padding: EdgeInsets.only(left: 15.0.wp),
                   child: const Icon(Icons.data_usage),

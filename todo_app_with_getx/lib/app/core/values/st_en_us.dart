@@ -3,4 +3,13 @@ const Map<String, String> en = {
   'multipleLanguage': 'Multiple language',
   'task': 'Task',
   'add': 'Add',
+  'language': 'Language',
+  'about': 'About',
+  'vietnam': 'Vietnamese',
+  'english': 'English',
+  'live_tasks': 'Live tasks',
+  'done_tasks': 'Done tasks',
+  'total_tasks': 'Total tasks',
+  'report': 'Report',
+  'efficiency': 'Efficiency',
 };
