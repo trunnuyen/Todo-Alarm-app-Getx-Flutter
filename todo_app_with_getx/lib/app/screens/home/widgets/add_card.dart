@@ -25,7 +25,7 @@ class AddCard extends StatelessWidget {
             await Get.defaultDialog(
                 titlePadding: EdgeInsets.symmetric(vertical: 5.0.wp),
                 radius: 5,
-                title: 'New Task',
+                title: 'new_task'.tr,
                 content: Form(
                     key: homeCtrl.formKey,
                     child: Column(
@@ -39,7 +39,7 @@ class AddCard extends StatelessWidget {
                                 labelText: 'Title'),
                             validator: (value) {
                               if (value == null || value.trim().isEmpty) {
-                                return 'Please enter title';
+                                return 'please_enter_title'.tr;
                               }
                               return null;
                             },
@@ -92,7 +92,7 @@ class AddCard extends StatelessWidget {
                                   color: color);
                               Get.back();
                               homeCtrl.addTask(task)
-                                  ? EasyLoading.showSuccess('Task created')
+                                  ? EasyLoading.showSuccess('task_created'.tr)
                                   : EasyLoading.showError(
                                       'Something went wrong');
                             }

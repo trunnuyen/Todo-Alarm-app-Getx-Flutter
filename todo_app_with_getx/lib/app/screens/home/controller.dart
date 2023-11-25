@@ -189,7 +189,7 @@ class HomeController extends GetxController {
   }
 
   void checkLocalLanguage() {
-    if (LocalizationService.locale == const Locale('vi', 'VN')) {
+    if (Get.locale == const Locale('vi', 'VN')) {
       value.value = 0;
     } else {
       value.value = 1;

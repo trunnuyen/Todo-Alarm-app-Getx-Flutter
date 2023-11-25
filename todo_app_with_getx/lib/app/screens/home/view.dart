@@ -3,6 +3,8 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:todo_app_with_getx/app/core/utils/extensions.dart';
 import 'package:todo_app_with_getx/app/data/models/task.dart';
+import 'package:todo_app_with_getx/app/screens/clock/binding.dart';
+import 'package:todo_app_with_getx/app/screens/clock/view.dart';
 import 'package:todo_app_with_getx/app/screens/home/controller.dart';
 import 'package:todo_app_with_getx/app/screens/home/widgets/add_card.dart';
 import 'package:todo_app_with_getx/app/screens/home/widgets/add_dialog.dart';
@@ -37,22 +39,34 @@ class HomePage extends GetView<HomeController> {
                               width: 3.0.wp,
                             ),
                             Text(
-                              'add'.tr,
+                              'task'.tr,
                               style: TextStyle(
                                   fontSize: 24.0.sp,
                                   fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
-                        IconButton(
-                          onPressed: () {
-                            Get.isDarkMode
-                                ? Get.changeTheme(ThemeData.light())
-                                : Get.changeTheme(ThemeData.dark());
-                          },
-                          icon: Icon(Get.isDarkMode
-                              ? Icons.light_mode
-                              : Icons.dark_mode),
+                        Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                Get.to(() => const ClockPage(),
+                                    binding: ClockBinding(),
+                                    transition: Transition.downToUp);
+                              },
+                              icon: const Icon(Icons.alarm),
+                            ),
+                            IconButton(
+                              onPressed: () {
+                                Get.isDarkMode
+                                    ? Get.changeTheme(ThemeData.light())
+                                    : Get.changeTheme(ThemeData.dark());
+                              },
+                              icon: Icon(Get.isDarkMode
+                                  ? Icons.light_mode
+                                  : Icons.dark_mode),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -108,7 +122,7 @@ class HomePage extends GetView<HomeController> {
         },
         onAccept: (Task task) {
           controller.deleteTask(task);
-          EasyLoading.showSuccess('Deleted');
+          EasyLoading.showSuccess('deleted'.tr);
         },
       ),
       bottomNavigationBar: Theme(
@@ -124,7 +138,7 @@ class HomePage extends GetView<HomeController> {
             showUnselectedLabels: false,
             items: [
               BottomNavigationBarItem(
-                label: 'Home',
+                label: 'home'.tr,
                 icon: Padding(
                   padding: EdgeInsets.only(right: 15.0.wp),
                   child: const Icon(Icons.apps),

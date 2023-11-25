@@ -42,6 +42,11 @@ dependencies:
   dotted_border: ^2.1.0
   step_progress_indicator: ^1.0.2
   intl: ^0.18.1
+  flutter_local_notifications: ^16.1.0
+  timezone: ^0.9.2
+  flutter_timezone: ^1.0.8
+  numberpicker: ^2.1.2
+  audioplayers: ^4.1.0
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +75,7 @@ flutter:
     - assets/images/task_image.png
     - assets/images/english.png
     - assets/images/vietnam.png
+    - assets/sounds/timer_sound.wav
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

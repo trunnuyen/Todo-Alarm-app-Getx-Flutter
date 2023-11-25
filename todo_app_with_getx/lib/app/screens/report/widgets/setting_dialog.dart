@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_app_with_getx/app/core/utils/extensions.dart';
-import 'package:todo_app_with_getx/app/core/values/colors.dart';
 import 'package:todo_app_with_getx/app/screens/home/controller.dart';
 
 class SettingDialog extends StatelessWidget {
@@ -123,19 +122,48 @@ class SettingDialog extends StatelessWidget {
             Padding(
               padding:
                   EdgeInsets.symmetric(horizontal: 6.6.wp, vertical: 2.0.wp),
-              child: Row(
-                children: [
-                  const Icon(Icons.info),
-                  SizedBox(
-                    width: 6.0.wp,
-                  ),
-                  Text(
-                    'about'.tr,
-                    style: TextStyle(
-                      fontSize: 14.0.sp,
+              child: GestureDetector(
+                onTap: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Padding(
+                        padding: EdgeInsets.all(3.0.wp),
+                        child: Wrap(
+                          direction: Axis.vertical,
+                          spacing: 3.0,
+                          children: [
+                            Text(
+                              'Made with Flutter by trunnuyen',
+                              style: TextStyle(fontSize: 14.0.sp),
+                            ),
+                            SizedBox(
+                              height: 3.0.wp,
+                            ),
+                            Text(
+                              'Github: https://github.com/trunnuyen',
+                              style: TextStyle(fontSize: 14.0.sp),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
+                child: Row(
+                  children: [
+                    const Icon(Icons.info),
+                    SizedBox(
+                      width: 6.0.wp,
                     ),
-                  ),
-                ],
+                    Text(
+                      'about'.tr,
+                      style: TextStyle(
+                        fontSize: 14.0.sp,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Padding(

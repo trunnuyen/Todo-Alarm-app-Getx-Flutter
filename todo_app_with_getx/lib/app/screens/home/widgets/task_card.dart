@@ -56,7 +56,7 @@ class TaskCard extends StatelessWidget {
                   colors: [Colors.white, Colors.white]),
             ),
             Padding(
-              padding: EdgeInsets.all(6.0.wp),
+              padding: EdgeInsets.all(5.0.wp),
               child: Icon(
                 IconData(task.icon, fontFamily: 'MaterialIcons'),
                 color: color,
@@ -78,12 +78,23 @@ class TaskCard extends StatelessWidget {
                   SizedBox(
                     height: 2.0.wp,
                   ),
-                  Text(
-                    '${task.todos?.length ?? 0} Tasks',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        '${task.todos?.length ?? 0} ',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        'tasks'.tr,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

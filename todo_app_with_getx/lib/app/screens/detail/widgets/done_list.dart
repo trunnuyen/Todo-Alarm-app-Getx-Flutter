@@ -21,12 +21,23 @@ class DoneList extends StatelessWidget {
                     horizontal: 7.5.wp,
                     vertical: 3.0.wp,
                   ),
-                  child: Text(
-                    'Completed (${homeCtrl.doneTodos.length})',
-                    style: TextStyle(
-                      fontSize: 14.0.sp,
-                      color: Colors.grey,
-                    ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'completed '.tr,
+                        style: TextStyle(
+                          fontSize: 14.0.sp,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        '(${homeCtrl.doneTodos.length})',
+                        style: TextStyle(
+                          fontSize: 14.0.sp,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 ...homeCtrl.doneTodos.map((element) => Dismissible(

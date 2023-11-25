@@ -21,7 +21,7 @@ class DoingList extends StatelessWidget {
                     height: 5.0.wp,
                   ),
                   Text(
-                    'Add Todos',
+                    'add_todos'.tr,
                     style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 16.0.sp),
                   ),

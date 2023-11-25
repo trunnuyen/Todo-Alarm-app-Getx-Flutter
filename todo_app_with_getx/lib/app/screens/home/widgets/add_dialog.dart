@@ -72,7 +72,7 @@ class AddDialog extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 7.0.wp),
-                  child: Text('New Task',
+                  child: Text('new_task'.tr,
                       style: TextStyle(
                         fontSize: 20.0.sp,
                         fontWeight: FontWeight.bold,
@@ -98,7 +98,7 @@ class AddDialog extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(7.0.wp, 3.0.wp, 7.0.wp, 3.0.wp),
-                  child: Text('Add to',
+                  child: Text('add_to'.tr,
                       style: TextStyle(fontSize: 14.0.sp, color: Colors.grey)),
                 ),
                 ...homeCtrl.tasks.map(
@@ -153,7 +153,7 @@ class AddDialog extends StatelessWidget {
                       await Get.defaultDialog(
                           titlePadding: EdgeInsets.symmetric(vertical: 2.0.wp),
                           radius: 5,
-                          title: 'New Task',
+                          title: 'new_task'.tr,
                           content: Column(
                             children: [
                               Padding(
@@ -249,7 +249,7 @@ class AddDialog extends StatelessWidget {
                           width: 3.0.wp,
                         ),
                         Text(
-                          'Add new',
+                          'add_new'.tr,
                           style: TextStyle(
                             fontSize: 12.0.sp,
                             color: Colors.grey,

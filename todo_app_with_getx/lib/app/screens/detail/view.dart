@@ -68,12 +68,23 @@ class DetailPage extends StatelessWidget {
                         left: 16.5.wp, top: 3.0.wp, right: 16.5.wp),
                     child: Row(
                       children: [
-                        Text(
-                          '$totalTodos Tasks',
-                          style: TextStyle(
-                            fontSize: 12.0.sp,
-                            color: Colors.grey,
-                          ),
+                        Row(
+                          children: [
+                            Text(
+                              '$totalTodos',
+                              style: TextStyle(
+                                fontSize: 12.0.sp,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Text(
+                              ' tasks'.tr,
+                              style: TextStyle(
+                                fontSize: 12.0.sp,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           width: 3.0.wp,
@@ -119,7 +130,7 @@ class DetailPage extends StatelessWidget {
                           bool success =
                               homeCtrl.addTodos(homeCtrl.homeTextCtrl.text);
                           if (success) {
-                            EasyLoading.showSuccess('Add todos successfully');
+                            EasyLoading.showSuccess('add_todos_successfully');
                           } else {
                             EasyLoading.showError('Todo item already exist');
                           }
@@ -131,7 +142,7 @@ class DetailPage extends StatelessWidget {
                   ),
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Please enter your todo item';
+                      return 'please_enter_your_todo_item'.tr;
                     }
                     return null;
                   },
