@@ -1,4 +1,4 @@
-# todo_app_with_getx
+# todo_alarm_app_with_getx
 
 A new Flutter project.
 
@@ -26,7 +26,7 @@ Report page
 
 ![alt text](https://github.com/trunnuyen/Todo-Alarm-app-Getx-Flutter/blob/main/todo_app_with_getx/assets/images/screenshots/report_page.png?raw=true)
 
-This project is a starting point for a Flutter application.
+Other functions: Timer countdown, Clock view, Dark mode, Change language(en, vi).
 
 A few resources to get you started if this is your first Flutter project:
 
