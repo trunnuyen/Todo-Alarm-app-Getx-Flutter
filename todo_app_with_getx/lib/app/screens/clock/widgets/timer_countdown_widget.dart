@@ -87,7 +87,7 @@ class TimerCountdown extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 50.0.wp,
+                height: 20.0.wp,
               ),
 
               /// Buttons
@@ -147,7 +147,7 @@ class TimerCountdown extends StatelessWidget {
                                             children: [
                                               const Text('H'),
                                               NumberPicker(
-                                                  itemWidth: 98,
+                                                  itemWidth: 80,
                                                   value: timeCtrl.hour.value,
                                                   minValue: 00,
                                                   maxValue: 24,
@@ -160,7 +160,7 @@ class TimerCountdown extends StatelessWidget {
                                             children: [
                                               const Text('M'),
                                               NumberPicker(
-                                                  itemWidth: 98,
+                                                  itemWidth: 80,
                                                   value: timeCtrl.min.value,
                                                   minValue: 00,
                                                   maxValue: 60,
@@ -173,7 +173,7 @@ class TimerCountdown extends StatelessWidget {
                                             children: [
                                               const Text('S'),
                                               NumberPicker(
-                                                  itemWidth: 98,
+                                                  itemWidth: 80,
                                                   value: timeCtrl.sec.value,
                                                   minValue: 00,
                                                   maxValue: 60,
