@@ -7,7 +7,14 @@ A new Flutter project.
 Screenshots
 
 Task page
-![alt text](https://github.com/trunnuyen/Todo-Alarm-app-Getx-Flutter/blob/assets/images/screenshots/task_page.png?raw=true)
+![alt text](https://github.com/trunnuyen/todo_app_with_getx/assets/images/screenshots/task_page.png?raw=true)
+Todo page
+![alt text](https://github.com/trunnuyen/todo_app_with_getx/assets/images/screenshots/todo_page.png?raw=true)
+Edit alarm page
+![alt text](https://github.com/trunnuyen/todo_app_with_getx/assets/images/screenshots/edit_alarm_page.png?raw=true)
+Alarm List page
+![alt text](https://github.com/trunnuyen/todo_app_with_getx/assets/images/screenshots/alarm_page.png?raw=true)
+
 
 This project is a starting point for a Flutter application.
 
