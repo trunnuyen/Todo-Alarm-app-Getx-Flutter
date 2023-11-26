@@ -1,4 +1,4 @@
-# todo_app_with_getx
+# todo_alarm_app_with_getx
 
 A new Flutter project.
 
