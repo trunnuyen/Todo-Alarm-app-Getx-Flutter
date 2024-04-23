@@ -94,7 +94,7 @@ class AddCard extends StatelessWidget {
                               homeCtrl.addTask(task)
                                   ? EasyLoading.showSuccess('task_created'.tr)
                                   : EasyLoading.showError(
-                                      'Something went wrong');
+                                      'todo_item_already_exist'.tr);
                             }
                           },
                           child: Text(

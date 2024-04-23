@@ -14,8 +14,8 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = HexColor.fromHex(homeCtrl.task.value!.color);
-    return WillPopScope(
-      onWillPop: () async => false,
+    return PopScope(
+      canPop: false,
       child: Scaffold(
         body: Form(
           key: homeCtrl.formKey,
@@ -130,9 +130,10 @@ class DetailPage extends StatelessWidget {
                           bool success =
                               homeCtrl.addTodos(homeCtrl.homeTextCtrl.text);
                           if (success) {
-                            EasyLoading.showSuccess('add_todos_successfully');
+                            EasyLoading.showSuccess(
+                                'add_todos_successfully'.tr);
                           } else {
-                            EasyLoading.showError('Todo item already exist');
+                            EasyLoading.showError('todo_item_already_exist'.tr);
                           }
                           homeCtrl.homeTextCtrl.clear();
                         }

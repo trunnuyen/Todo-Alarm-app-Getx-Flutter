@@ -12,8 +12,8 @@ class AlarmList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => WillPopScope(
-        onWillPop: () async => false,
+      () => PopScope(
+        canPop: false,
         child: Scaffold(
           appBar: AppBar(
               backgroundColor: Colors.transparent,

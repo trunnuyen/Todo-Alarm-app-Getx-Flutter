@@ -120,8 +120,8 @@ class HomePage extends GetView<HomeController> {
             ),
           );
         },
-        onAccept: (Task task) {
-          controller.deleteTask(task);
+        onAcceptWithDetails: (DragTargetDetails<Task> task) {
+          controller.deleteTask(task.data);
           EasyLoading.showSuccess('deleted'.tr);
         },
       ),

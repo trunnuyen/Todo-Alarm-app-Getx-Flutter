@@ -53,4 +53,5 @@ const Map<String, String> vi = {
   'pause': 'Tạm dừng',
   'resume': 'Tiếp tục',
   'cancel': 'Hủy',
+  'todo_item_already_exist': 'Công việc đã tồn tại',
 };

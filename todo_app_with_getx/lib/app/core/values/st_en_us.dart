@@ -53,4 +53,5 @@ const Map<String, String> en = {
   'pause': 'Pause',
   'resume': 'Resume',
   'cancel': 'Cancel',
+  'todo_item_already_exist': 'Todo item already exists',
 };
